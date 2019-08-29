@@ -14,6 +14,11 @@ module.exports = {
                 throw new SecurityException(null, "Necessary informated acessToken!");
             }
 
+            const isValidAccessToken = app.PARAM_PREFIX_TOKEN.test(accessToken);
+            if(!isValidAccessToken) {
+                throw new SecurityException(null, "Token invalid")
+            }
+            
             accessToken = accessToken.replace(app.PARAM_PREFIX_TOKEN, "");
             await token.isValid(accessToken);
 
