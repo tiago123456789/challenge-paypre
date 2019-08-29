@@ -8,6 +8,10 @@ class GithubUserService {
         this._respository = new GithubUserRepository();
     }
 
+    findAll() {
+        return this._respository.findAll();
+    }
+
     async searchByUsername(username) {
         try {
             const response = await axios.get(`https://api.github.com/users/${username}`);

@@ -9,6 +9,16 @@ class GithubUserEndpoint extends Endpoint {
         this._service = new GithubUserService();
         this.searchByUsername = this.searchByUsername.bind(this);
         this.create = this.create.bind(this);
+        this.findAll = this.findAll.bind(this);
+    }
+
+    async findAll(request, response, next) {
+        try {
+            const githubUsers = await this._service.findAll();
+            response.json(githubUsers);
+        } catch(error) {
+            next(error);
+        }
     }
 
     async create(request, response, next) {
