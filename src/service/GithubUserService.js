@@ -12,6 +12,10 @@ class GithubUserService {
         return this._respository.findAll();
     }
 
+    findByLogin(login) {
+        return this._respository.findByLogin(login);
+    }
+
     async searchByUsername(username) {
         try {
             const response = await axios.get(`https://api.github.com/users/${username}`);
