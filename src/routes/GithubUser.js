@@ -8,7 +8,7 @@ const router = express.Router();
 module.exports = () => {
 
     router.get("/:username", authMiddleware.hasPermission("ADMIN"), githubUserEndpoint.searchByUsername);
-    router.get("/", authMiddleware.hasPermission("COMUN"), githubUserEndpoint.findAll);
+    router.get("/", authMiddleware.hasPermission("COMUM"), githubUserEndpoint.findAll);
     router.post("/", 
         authMiddleware.hasPermission("ADMIN"),
         githubUserEndpoint.validations(),

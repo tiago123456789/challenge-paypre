@@ -1,6 +1,5 @@
 const CONSTANTES = require("../../src/config/App");
 const collection = require("../../src/collections/User");
-const database = require("../helpers/Database");
 
 describe("Suit integration test auth", () => {
     const user = {
