@@ -1,0 +1,346 @@
+{
+	"info": {
+		"_postman_id": "79600769-7c4c-4a1c-b047-9dc8842b36b4",
+		"name": "CHALLENGE-PAY-PREV",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"description": "",
+			"item": [
+				{
+					"name": "Autenticar usando login é senha",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"tiagorosadacost2@gmail.com\",\n\t\"password\": \"tiagorosadacosta\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Process authentication user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"description": "",
+			"item": [
+				{
+					"name": "Criar uma novo usuário no sistema",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"tiagorosadacost21@gmail.com\",\n\t\"password\": \"tiagorosadacosta\",\n\t\"cpf\": \"109.253.140-80\",\n\t\"role\": \"ADMIN\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						},
+						"description": "Create new user"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Github Users",
+			"description": "",
+			"item": [
+				{
+					"name": "Buscar usuário do github pelo login",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRpYWdvcm9zYWRhY29zdDJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNTY3MjI1NDUzLCJpYXQiOjE1NjcyMjQ1NTN9.51zJuXGXUYiQVXodtrWxipKq3PeRLBvNU7dRKW-vG5w"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/github-users/suissa",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"github-users",
+								"suissa"
+							]
+						},
+						"description": "Search datas github user by username"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar todos os usuários do github que foram adicionados ao banco de dados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRpYWdvcm9zYWRhY29zdDJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNTY3MTU5MDY2LCJpYXQiOjE1NjcxNTgxNjZ9.A3Kbu-7FISewiu8Dkp9tbBvTCqaH1nDmbHHVZcwd2EM"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/github-users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"github-users"
+							]
+						},
+						"description": "Return all users github registers in database"
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar um usuaário do github no banco de dados.",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRpYWdvcm9zYWRhY29zdDJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNTY3MjI2MDg1LCJpYXQiOjE1NjcyMjUxODV9.Cdw_Yzu_9ZLJ5yDgkMItV-sZEGolreQtP9XsM0QooJo"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"rodrigobranas\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/github-users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"github-users"
+							]
+						},
+						"description": "Register datas following: login, html_url, name, location and bio when informat username body request"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Paste",
+			"description": "",
+			"item": [
+				{
+					"name": "Retorna as pastas cadastradas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRpYWdvcm9zYWRhY29zdDJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNTY3MjI2MDg1LCJpYXQiOjE1NjcyMjUxODV9.Cdw_Yzu_9ZLJ5yDgkMItV-sZEGolreQtP9XsM0QooJo"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/pastes",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pastes"
+							]
+						},
+						"description": "Return list pastes "
+					},
+					"response": []
+				},
+				{
+					"name": "Cria uma pasta para organizar usuário do github",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRpYWdvcm9zYWRhY29zdDJAZ21haWwuY29tIiwicm9sZSI6IkFETUlOIiwiZXhwIjoxNTY3MTU4NTI4LCJpYXQiOjE1NjcxNTc2Mjh9.RI9ycFNEkRffbLh-W7n-7wnLGVv2vq7yofvBkH-AReQ"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Dev - Javascript\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/pastes",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pastes"
+							]
+						},
+						"description": "Create new paste"
+					},
+					"response": []
+				},
+				{
+					"name": "Adiciona um usuário do github já cadastrado no banco de dados a uma pasta ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"suissa\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/pastes/5d69e5d9a84cce78d7d52dcc/users",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pastes",
+								"5d69e5d9a84cce78d7d52dcc",
+								"users"
+							]
+						},
+						"description": "Add user a exist paste"
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar um tag a um usuário já cadastrado em uma pasta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"tag\": \"Node.js\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/pastes/5d69e5d9a84cce78d7d52dcc/users/5d67abc614fbd0307518c32c/tags",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pastes",
+								"5d69e5d9a84cce78d7d52dcc",
+								"users",
+								"5d67abc614fbd0307518c32c",
+								"tags"
+							]
+						},
+						"description": "Add tag a user github added an paste"
+					},
+					"response": []
+				},
+				{
+					"name": "Edita nome da pasta",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Dev - Node.js\"\n}"
+						},
+						"url": {
+							"raw": "localhost:3000/pastes/5d69e5d9a84cce78d7d52dcc",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pastes",
+								"5d69e5d9a84cce78d7d52dcc"
+							]
+						},
+						"description": "Update name paste"
+					},
+					"response": []
+				},
+				{
+					"name": "Deleta uma pasta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "localhost:3000/pastes/5d69e5d9a84cce78d7d52dcc",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pastes",
+								"5d69e5d9a84cce78d7d52dcc"
+							]
+						},
+						"description": "Delete an paste"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
