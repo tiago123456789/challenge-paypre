@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 // Load environment variables.
-require("dotenv").config();
+require("./LoaderEnvironmentVariable");
 
 const db = require("./Database");
 const routesApp = require("../routes");

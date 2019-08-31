@@ -6,8 +6,8 @@ const bcrypt = require("bcryptjs");
 
 class UserService {
 
-    constructor() {
-        this._repository = new UserRepository();
+    constructor(respository = null) {
+        this._repository = respository || new UserRepository();
         this._token = new Token();
     }
 
@@ -16,7 +16,7 @@ class UserService {
     }
 
     async authenticate(credentails) {
-        if (!credentails.email || !credentails.password) {
+        if (!credentails || !credentails.email || !credentails.password) {
             throw new SecurityException(null, "Datas invalid!");
         }
 
