@@ -12,3 +12,6 @@ Detalhes:
     ```
         npm run test
     ```
+
+- Observação: Verificar **role** do usuário cadastrado, pois baseado nas definir do teste.
+Exemplo: Usuário role(ADMIN) só pode fazer o que foi descrito no teste, é o mesmo vale para usuário com role(COMUM).
