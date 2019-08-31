@@ -27,11 +27,14 @@ class GithubUserService {
 
     async create(newRegister) {
         const userAlreadyRegister = await this._respository.findByLogin(newRegister["username"]);
+    
         if (!userAlreadyRegister) {
             newRegister = await this.searchByUsername(newRegister["username"]);
             const { login, name, html_url, location, bio } = newRegister;
             return this._respository.create({ login, name, html_url, location, bio });
         }
+
+        return null;
     }
 
     _extractDatasResponse(response) {
