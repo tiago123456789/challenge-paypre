@@ -6,9 +6,9 @@ const NotFoundException = require("../exception/NotFoundException");
 
 class PasteService {
 
-    constructor() {
-        this._repository = new PasteRepository();
-        this._githubUserService = new GithubUserService();
+    constructor(repository = null, githubUserService = null) {
+        this._repository = repository || new PasteRepository();
+        this._githubUserService = githubUserService || new GithubUserService();
     }
 
     async findById(id) {
@@ -35,7 +35,7 @@ class PasteService {
             "user": { _id: githubUser._id, login: githubUser.login } 
             , tags: []
         });
-        paste.save();
+        return paste.save();
     }
 
     async addTag(id, idUser, tag) {

@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "start:dev": "nodemon ./src/index.js",
-    "test:unit": "NODE_ENV=test mocha --no-colors --opts ./tests/mocha.opts ./tests/unit/**/*.spec.js",
+    "test:unit": "NODE_ENV=test mocha --timeout 10000 --no-colors --opts ./tests/mocha.opts ./tests/unit/**/*.spec.js",
     "test:integration": "NODE_ENV=test mocha --no-colors --opts ./tests/mocha.opts ./tests/integration/**/*.spec.js",
     "test": "NODE_ENV=test npm run test:unit && npm run test:integration "
   },
