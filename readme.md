@@ -6,8 +6,8 @@ Detalhes:
 - Nas routes do postman, após fazer a instrução acima, deve ubstituir **localhost:3000** por **DOMAIN_PARA_CRAIR** para testar aplicação.
 
 - Para executar os testes execute o comando:
-
-   - Primeiro mude as informação do arquivo **.env-test**
+   - Clone o projeto
+   - Mude as informação do arquivo **.env-test**
    - Depois execute o comando: 
     ```
         npm run test
