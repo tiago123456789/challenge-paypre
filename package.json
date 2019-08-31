@@ -4,6 +4,7 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
+    "start": "pm2 start ./src/index.js -i max",
     "start:dev": "nodemon ./src/index.js",
     "test:unit": "NODE_ENV=test mocha --no-colors --opts ./tests/mocha.opts ./tests/unit/**/*.spec.js",
     "test:integration": "NODE_ENV=test mocha --no-colors --opts ./tests/mocha.opts ./tests/integration/**/*.spec.js",
