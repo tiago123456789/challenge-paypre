@@ -1,5 +1,5 @@
 const  { check } = require("express-validator");
-
+const regex = require("../lib/Regex");
 const UserService = require("../service/UserService");
 const Endpoint = require("./Endpoint");
 
@@ -38,11 +38,14 @@ class UserEndpoint extends Endpoint {
             check("email").isLength({ min: 1 })
             .withMessage("The field email is required."),
 
-            check("password").isLength({ min: 1 })
-            .withMessage("The field password is required."),
+            check("email").matches(regex.EMAIL)
+            .withMessage("Email is invalid."),            
+
+            check("password").isLength({ min: 6 })
+            .withMessage("The field password must at least 6 characters."),
             
-            check("cpf").isLength({ min: 1 })
-            .withMessage("The field cpf is required."),
+            check("cpf").isLength({ min: 11 })
+            .withMessage("The field cpf must at least 11 required."),
 
             check("role").isLength({ min: 1 })
             .withMessage("The field role is required. Values valids: COMUM OR ADMIN")
