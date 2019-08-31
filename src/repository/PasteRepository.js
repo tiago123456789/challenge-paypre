@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const Repository = require("./Repository");
 const pasteModel = require("../collections/Paste");
 
@@ -21,21 +22,21 @@ class PasteRepository extends Repository {
     async isCheckTagAddedToUser(id, idUser, tag) {
         const register = await this.getModel().findOne({
             _id: id, 
-            'users': { 
-                $elemMatch: { 'user._id': idUser, tags: { $in: [ tag ] }  }
+            'github_users': { 
+                $elemMatch: { 'user._id': mongoose.Types.ObjectId(idUser), tags: { $in: [ tag ] }  }
             } 
         });
 
-        return register != null;
+        return register;
     }
 
     addTag(id, idUser, tag) {
         return this.getModel().update({
             _id: id, 
-            'users': {
-                $elemMatch: { 'user._id': idUser }
+            'github_users': {
+                $elemMatch: { 'user._id': mongoose.Types.ObjectId(idUser) }
             }
-        }, { $push: { tags: tag } });
+        }, { $push: { "github_users.$.tags": tag } });
     }
 }
 

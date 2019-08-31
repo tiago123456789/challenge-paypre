@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 class Repository {
 
     constructor(model) {
@@ -17,11 +19,12 @@ class Repository {
     }
 
     remove(id) {
-        return this._model.deleteOne({ _id: id });
+        return this._model.deleteOne({ _id: mongoose.Types.ObjectId(id) });
     }
 
     update(id, datasModified) {
-        return this._model.updateOne({ _id: id }, { $set: datasModified });
+        console.log(datasModified);
+        return this._model.updateOne({ _id: mongoose.Types.ObjectId(id) }, { $set: datasModified });
     }
 
     getModel() {

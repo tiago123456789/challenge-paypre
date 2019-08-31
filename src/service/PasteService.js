@@ -20,6 +20,7 @@ class PasteService {
     }
 
     async addUser(id, login) {
+        await this.findById(id);
         let githubUser = await this._githubUserService.findByLogin(login);
         if (!githubUser) {
             throw new NotFoundException("Github user not was register.")
@@ -38,7 +39,7 @@ class PasteService {
     }
 
     async addTag(id, idUser, tag) {
-        const tagAlreadyAdded = this._repository.isCheckTagAddedToUser(id, idUser);
+        const tagAlreadyAdded = await this._repository.isCheckTagAddedToUser(id, idUser, tag);
         if (tagAlreadyAdded) {
             throw new LogicNegotiationException("Tag already was added to user.");
         }
