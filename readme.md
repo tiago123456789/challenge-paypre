@@ -3,7 +3,7 @@ Detalhes:
 
 - Importar arquivo CHALLENGE-PAY-PREV.postman_collection.json no postman para testar. O arquivo se encontra na raiz do projeto.
 
-- Nas routes do postman, após fazer a instrução acima, deve ubstituir **localhost:3000** por **DOMAIN_PARA_CRAIR** para testar aplicação.
+- Nas routes do postman, após fazer a instrução acima, deve substituir **localhost:3000** por **http://ec2-18-229-126-101.sa-east-1.compute.amazonaws.com:3000** para testar aplicação.
 
 - Para executar os testes execute os seguintes passos:
    - Clone o projeto
