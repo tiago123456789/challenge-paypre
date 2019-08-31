@@ -4,8 +4,8 @@ const axios = require("axios");
 
 class GithubUserService {
 
-    constructor() {
-        this._respository = new GithubUserRepository();
+    constructor(repository = null) {
+        this._respository = repository || new GithubUserRepository();
     }
 
     findAll() {
