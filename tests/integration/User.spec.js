@@ -12,6 +12,7 @@ describe("Suit integration test user", () => {
     beforeEach(async () => {
         await database(collection).clean();
     });
+    
 
     it("Should return status 422 because not informated datas necessary", function (done) {
         request

@@ -7,6 +7,10 @@ describe("Suit test UserService", () => {
         "password": "123654789"
     };
 
+    afterEach(() => {
+        eventEmitter.emit("database-close-connection");
+    });
+
     it("Should create new user", async () => {
         const repositoryFake = {
             findByEmail: sinon.stub(),

@@ -23,7 +23,6 @@ class Repository {
     }
 
     update(id, datasModified) {
-        console.log(datasModified);
         return this._model.updateOne({ _id: mongoose.Types.ObjectId(id) }, { $set: datasModified });
     }
 

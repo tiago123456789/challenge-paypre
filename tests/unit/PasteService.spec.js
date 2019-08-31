@@ -11,6 +11,10 @@ describe("Suit test PasteService", () => {
     const idUser = "5d69e5d9a84cce78d7d52dcc";
     const tag = "test";
 
+    afterEach(() => {
+        eventEmitter.emit("database-close-connection");
+    });
+
     it("Should return 3 itens to the call method findAll", async () => {
         const repositoryFake = {
             "findAll": sinon.stub()

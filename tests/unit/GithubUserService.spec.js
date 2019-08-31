@@ -9,6 +9,10 @@ describe("Suit test GithubUserService", () => {
         html_url: "www.github.com.br/users/test"
     };
 
+    afterEach(() => {
+        eventEmitter.emit("database-close-connection");
+    });
+    
     it("Should return 3 itens to the call method findAll", async () => {
         const repositoryFake = {
             "findAll": sinon.stub()
