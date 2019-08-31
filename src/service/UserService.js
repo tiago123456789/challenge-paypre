@@ -21,6 +21,11 @@ class UserService {
         }
 
         let user = await this.findByEmail(credentails.email);
+
+        if (!user) {
+            throw new SecurityException(null, "Datas invalid!");
+        }
+        
         const isPaswordValid = await bcrypt.compare(credentails.password, user.password);
 
         if (!isPaswordValid) {
